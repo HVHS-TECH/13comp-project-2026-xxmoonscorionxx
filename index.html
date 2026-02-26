@@ -1,1 +1,47 @@
-Hello world!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>java Script Refresher</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+
+    <!-- firebase start ****************************************-->
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <!-- firebase end ******************************************-->
+</head>
+
+
+<body>
+  
+        <section>
+        <div class="container">
+            <div class="column">
+                <button onclick="fb_initialise()">initialise firebase</button>
+                
+                <button onclick="fb_readRecord()">read</button>
+                <p class="p_fbStatus">The username: <span id="readDataBaseName"> n/a</span></p>
+            </div>
+        </section>
+        
+    <input id="messageInput" placeholder="Type a message">
+    <button onclick="saveMessage()">Save Message</button>
+    <h3>Message Board</h3>
+    <button onclick="showMessages()">Show All Messages</button>
+    <div id="allMessages"></div>
+
+
+
+
+
+
+            
+    <script type="module" src="/main.mjs"></script>
+    <script type="module" src="/landingPage.mjs"></script>
+    <input type="text" id="dataInput" placeholder="What u want ur path to be?">
+    <input type="text" id="dataInput2" placeholder="secret info to store">
+    <button onclick="submitData()">Submit</button>
+
+</body>
+</html>
