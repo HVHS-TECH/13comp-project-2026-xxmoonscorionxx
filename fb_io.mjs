@@ -35,7 +35,7 @@ import { update }
 // List all the functions called by code or html outside of this module
 /**************************************************************/
 export {
-   fb_test, fb_initialise, fb_readRecord, submitData, refreshMessages, changeHeading, saveMessage, showMessages//,fb_authenticate, fb_onAuthStateChanged, fb_signOut, fb_writeRecord, fb_readAll, fb_destroy, fb_updateRecord
+   fb_test, fb_initialise, fb_readRecord, submitData, refreshMessages, changeHeading, saveMessage, showMessages, redirectRegistration//,fb_authenticate, fb_onAuthStateChanged, fb_signOut, fb_writeRecord, fb_readAll, fb_destroy, fb_updateRecord
 };
 function fb_test() {
     console.log("Test")
@@ -51,7 +51,7 @@ function fb_initialise() {
                 messagingSenderId: "642080257991",
                 appId: "1:642080257991:web:ed25909b7ec79b721d0be2",
                 measurementId: "G-92VEN9VD93"
-                };            
+                };
             const FB_GAMEAPP = initializeApp(firebaseConfig);
             fb_gamedb= getDatabase(FB_GAMEAPP);
             console.info(fb_gamedb);
@@ -147,7 +147,7 @@ function changeHeading() {
         heading.innerHTML = headingInput;
     }
     
-}   
+};   
 function saveMessage() {
     const messageText = document.getElementById("messageInput").value;
     const dbReference = ref(fb_gamedb, "Messages/" + Date.now());
@@ -157,7 +157,7 @@ function saveMessage() {
     }).catch((error) => {
         console.log("error: " + error);
     });
-}
+};
 function showMessages() {
     const dbReference = ref(fb_gamedb, "Messages");
     get(dbReference).then((snapshot) => {
@@ -170,4 +170,7 @@ function showMessages() {
        }).catch((error) => {
         console.log("error: " + error);
     });
-}
+};
+function redirectRegistration() {
+    window.location.replace("../index.html");
+};
