@@ -36,14 +36,14 @@ function fb_initialise() {
     console.log('%c fb_initialise(): ',
         'color: ' + COL_C + '; background-color: ' + COL_B + ';');
     const firebaseConfig = {
-        apiKey: "AIzaSyAQ4FYhhhVQvTWxBJstBPqUEM7k1z3HNCs",
-        authDomain: "comp-2025-william-kan.firebaseapp.com",
-        databaseURL: "https://comp-2025-william-kan-default-rtdb.firebaseio.com",
-        projectId: "comp-2025-william-kan",
-        storageBucket: "comp-2025-william-kan.firebasestorage.app",
-        messagingSenderId: "928584832942",
-        appId: "1:928584832942:web:caa21627c817d307485a3f",
-        measurementId: "G-L6S6H3WPXE"
+        apiKey: "AIzaSyCttBxOg7c8gFwt2lvB639v8viidWrVnYM",
+            authDomain: "refresh-c5e63.firebaseapp.com",
+            databaseURL: "https://refresh-c5e63-default-rtdb.firebaseio.com",
+            projectId: "refresh-c5e63",
+            storageBucket: "refresh-c5e63.firebasestorage.app",
+            messagingSenderId: "642080257991",
+            appId: "1:642080257991:web:ed25909b7ec79b721d0be2",
+            measurementId: "G-92VEN9VD93"
     };
     // Initialize Firebase
     const FB_GAMEAPP = initializeApp(firebaseConfig);

@@ -46,12 +46,13 @@ function fb_initialise() {
             const firebaseConfig = {
                 apiKey: "AIzaSyCttBxOg7c8gFwt2lvB639v8viidWrVnYM",
                 authDomain: "refresh-c5e63.firebaseapp.com",
+                databaseURL: "https://refresh-c5e63-default-rtdb.firebaseio.com",
                 projectId: "refresh-c5e63",
                 storageBucket: "refresh-c5e63.firebasestorage.app",
                 messagingSenderId: "642080257991",
                 appId: "1:642080257991:web:ed25909b7ec79b721d0be2",
                 measurementId: "G-92VEN9VD93"
-                };
+            };
             const FB_GAMEAPP = initializeApp(firebaseConfig);
             fb_gamedb= getDatabase(FB_GAMEAPP);
             console.info(fb_gamedb);
