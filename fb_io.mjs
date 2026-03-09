@@ -160,7 +160,8 @@ function fb_writeFarLands() {
 
 //    });
 }
-function fb_writeCoinGame() {
+
+function fb_writeCoinGame(path, data) {
     var score;
     score = sessionStorage.getItem("score");
     userUID = sessionStorage.getItem("UID");
