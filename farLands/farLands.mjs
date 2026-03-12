@@ -60,7 +60,7 @@ function setup() {
 		UID = sessionStorage.getItem("UID");
 		userName = sessionStorage.getItem("userName");
 		if (UID == null) {
-			window.location.replace("registration/registration.html");
+			window.location.replace("../registration/registration.html");
 		}
 		background('#0e001b');
 		startImage = new Sprite(900, 500, 200, 400, 's');
@@ -156,11 +156,11 @@ function playState() {
 // loads the images for sprites.
 //******************* */
 function preload() {
-	startText = loadImage('assets/start_image.png');
-	spaceshipModel = loadImage('assets/spaceshipImage.gif')
-	asteroidModel = loadImage('assets/asteroid.png');
-	coinModel = loadImage('assets/coin.png')
-	banner = loadImage('assets/banner.png')
+	startText = loadImage('../assets/start_image.png');
+	spaceshipModel = loadImage('../assets/spaceshipImage.gif')
+	asteroidModel = loadImage('../assets/asteroid.png');
+	coinModel = loadImage('../assets/coin.png')
+	banner = loadImage('../assets/banner.png')
 
 
 
@@ -525,7 +525,7 @@ button.addEventListener('click', function() {
 }
 function home() {
 	if (kb.pressing('t')) {
-		window.location.replace("index.html");
+		window.location.replace("../index.html");
 	}
 }
 /**************************************************** *

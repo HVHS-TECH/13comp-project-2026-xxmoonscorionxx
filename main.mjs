@@ -3,9 +3,9 @@
 /**************************************************************/
 // Import all the constants & functions required from fb_io module
 import { fb_start, fb_initialise, fb_authenticate, fb_writeFarLands, fb_writeCoinGame,  fb_read_sortedFL, fb_read_sortedCG, fb_updateInformationRegistrationFL, fb_updateInformationRegistrationCG,
-    fb_updateInformationRegistrationAgeFL, fb_writeAuth
+    fb_updateInformationRegistrationAgeFL, fb_writeAuth, createLobby
  }
-    from './fb_io_Farlands.mjs';
+    from './fb_io.mjs';
 
 window.fb_start = fb_start;
 window.fb_initialise = fb_initialise;
@@ -17,6 +17,7 @@ window.fb_updateInformationRegistrationFL = fb_updateInformationRegistrationFL;
 window.fb_updateInformationRegistrationCG = fb_updateInformationRegistrationCG;
 window.fb_updateInformationRegistrationAgeFL = fb_updateInformationRegistrationAgeFL;
 window.fb_writeAuth = fb_writeAuth;
+window.createLobby = createLobby;
 //window.fb_initialise = fb_initialise;
 //window.fb_authenticate = fb_authenticate;
 
