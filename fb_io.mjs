@@ -29,7 +29,7 @@ export {
     fb_updateInformationRegistrationAgeFL, fb_writeAuth,
 
     //Guess The Number Export
-    createLobby
+    createLobby, joinLobby
 };
 function fb_start() {
     fb_initialise();
@@ -240,9 +240,11 @@ function fb_read_sortedFL() {
     }).catch((error) => {
         console.log(error)
     });
-
-
 }
+
+
+
+
 function fb_read_sortedCG() {
     var sortKey = "Score";
     const dbReference = query(ref(fb_gamedb, "Games/CoinGame/Users"), orderByChild(sortKey), limitToFirst(3));
@@ -330,10 +332,54 @@ function fb_updateInformationRegistrationCG() {
 // Creating the lobby in firebase
 /**************************************************************/
 function createLobby() {
+    const userUID = sessionStorage.getItem("UID");
+    console.log(userUID);
+    const auth = getAuth();
+    auth.onAuthStateChanged(user => {
+        if (user) {
+            console.log("Signed in as:", user.uid);
+        } else {
+            console.log("Not signed in");
+        }
+    });
     const dbReference = ref(fb_gamedb, "Games/guessTheNumber/unActive/" + userUID + "/player2");
-        update(dbReference, { player2: null}).then(() => {
-            console.log("successful");
-        }).catch((error) => {
-            console.log("error  " + error)
-        });
+
+    set(dbReference, { player2: "none", host: userUID}).then(() => {
+        console.log("very successful");
+
+    }).catch((error) => {
+        console.log("error  " + error)
+    });
+
 };
+function joinLobby() {
+    const userUID = sessionStorage.getItem("UID");
+    console.log(userUID);
+ //   const auth = getAuth();
+ //   auth.onAuthStateChanged(user => {
+ //       if (user) {
+ //           console.log("Signed in as:", user.uid);
+ //       } else {
+ //           console.log("Not signed in");
+ //       }
+ //   });
+    
+    const dbReference= ref(fb_gamedb, "Games/guessTheNumber/unActive/");
+    get(dbReference).then((snapshot) => {
+        var fb_data = snapshot.val();
+        if (fb_data != null) { 
+            console.log(fb_data + "works")
+        } else {
+            console.log(String(fb_data) + "works sorta")
+        }
+    }).catch((error) => {
+        console.log("error" + error)
+    });
+
+ //   const dbReference = ref(fb_gamedb, "Games/guessTheNumber/unActive/" + userUID + "/player2");
+  //  set(dbReference, { player2: "none"}).then(() => {
+ //       console.log("very successful");
+ //   }).catch((error) => {
+ //       console.log("error  " + error)
+  //  });
+}
