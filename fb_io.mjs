@@ -3,7 +3,7 @@ var userUID;
 var username;
 var userDisplayName;
 var userProfilePicture
-var leaderboard1; 
+var leaderboard1;
 var newScoreValid;
 const COL_C = 'white';	    // These two const are part of the coloured 	
 const COL_B = '#CD7F32';	//  console.log for functions scheme
@@ -40,13 +40,13 @@ function fb_initialise() {
         'color: ' + COL_C + '; background-color: ' + COL_B + ';');
     const firebaseConfig = {
         apiKey: "AIzaSyCttBxOg7c8gFwt2lvB639v8viidWrVnYM",
-            authDomain: "refresh-c5e63.firebaseapp.com",
-            databaseURL: "https://refresh-c5e63-default-rtdb.firebaseio.com",
-            projectId: "refresh-c5e63",
-            storageBucket: "refresh-c5e63.firebasestorage.app",
-            messagingSenderId: "642080257991",
-            appId: "1:642080257991:web:ed25909b7ec79b721d0be2",
-            measurementId: "G-92VEN9VD93"
+        authDomain: "refresh-c5e63.firebaseapp.com",
+        databaseURL: "https://refresh-c5e63-default-rtdb.firebaseio.com",
+        projectId: "refresh-c5e63",
+        storageBucket: "refresh-c5e63.firebasestorage.app",
+        messagingSenderId: "642080257991",
+        appId: "1:642080257991:web:ed25909b7ec79b721d0be2",
+        measurementId: "G-92VEN9VD93"
     };
     // Initialize Firebase
     const FB_GAMEAPP = initializeApp(firebaseConfig);
@@ -55,7 +55,7 @@ function fb_initialise() {
 }
 function fb_authenticate() {
 
-    
+
     sessionStorage.setItem("UID", userUID);
     console.log("working function")
     const AUTH = getAuth();
@@ -71,9 +71,9 @@ function fb_authenticate() {
         console.log(result.user.photoURL);
         console.log(result.user.email);
         console.log(result.user.displayName);
-        console.log( result.user.uid);
+        console.log(result.user.uid);
 
-        
+
         userUID = result.user.uid;
         userDisplayName = result.user.displayName;
         userProfilePicture = result.user.photoURL;
@@ -98,7 +98,7 @@ function fb_authenticate() {
         console.log("error authenticating: " + error);
         // document.getElementById("p_fbAuthenticate").innerHTML = "Failled Authenticating";
     });
-    
+
 }
 function fb_writeAuth() {
     userUID = sessionStorage.getItem("UID");
@@ -113,7 +113,7 @@ function fb_writeAuth() {
     });
     const dbReference = ref(fb_gamedb, "details/users/" + userUID);
 
-    update(dbReference, { UID:userUID, userDisplayName:userDisplayName, userProfilePicture:userProfilePicture}).then(() => {
+    update(dbReference, { UID: userUID, userDisplayName: userDisplayName, userProfilePicture: userProfilePicture }).then(() => {
         console.log("update very successful");
 
 
@@ -122,17 +122,17 @@ function fb_writeAuth() {
     });
 
 
-  //  const dbReference = ref(fb_gamedb, ('Games/FarLands/Users/' + userUID));
+    //  const dbReference = ref(fb_gamedb, ('Games/FarLands/Users/' + userUID));
 
-  //  set(dbReference, { Score: Number(score), Name: userName }).then(() => {
-   //     console.log("write successful");
-        //document.getElementById("p_fbWriteRec").innerHTML = "Successful";
+    //  set(dbReference, { Score: Number(score), Name: userName }).then(() => {
+    //     console.log("write successful");
+    //document.getElementById("p_fbWriteRec").innerHTML = "Successful";
 
- //   }).catch((error) => {
- //       console.log("error:  " + error);
-        //document.getElementById("p_fbWriteRec").innerHTML = "Successful";
+    //   }).catch((error) => {
+    //       console.log("error:  " + error);
+    //document.getElementById("p_fbWriteRec").innerHTML = "Successful";
 
-//    });
+    //    });
 }
 function fb_writeFarLands() {
     var score;
@@ -151,7 +151,7 @@ function fb_writeFarLands() {
     });
     const dbReference = ref(fb_gamedb, "Games/FarLands/Users/" + userUID);
 
-    update(dbReference, { Score: Number(score)}).then(() => {
+    update(dbReference, { Score: Number(score) }).then(() => {
         console.log("update successful");
 
 
@@ -160,17 +160,17 @@ function fb_writeFarLands() {
     });
 
 
-  //  const dbReference = ref(fb_gamedb, ('Games/FarLands/Users/' + userUID));
+    //  const dbReference = ref(fb_gamedb, ('Games/FarLands/Users/' + userUID));
 
-  //  set(dbReference, { Score: Number(score), Name: userName }).then(() => {
-   //     console.log("write successful");
-        //document.getElementById("p_fbWriteRec").innerHTML = "Successful";
+    //  set(dbReference, { Score: Number(score), Name: userName }).then(() => {
+    //     console.log("write successful");
+    //document.getElementById("p_fbWriteRec").innerHTML = "Successful";
 
- //   }).catch((error) => {
- //       console.log("error:  " + error);
-        //document.getElementById("p_fbWriteRec").innerHTML = "Successful";
+    //   }).catch((error) => {
+    //       console.log("error:  " + error);
+    //document.getElementById("p_fbWriteRec").innerHTML = "Successful";
 
-//    });
+    //    });
 }
 function fb_writeCoinGame() {
     var score;
@@ -189,7 +189,7 @@ function fb_writeCoinGame() {
     });
     const dbReference = ref(fb_gamedb, "Games/CoinGame/Users/" + userUID);
 
-    update(dbReference, { Score: Number(score)}).then(() => {
+    update(dbReference, { Score: Number(score) }).then(() => {
         console.log("update successful");
 
 
@@ -197,17 +197,17 @@ function fb_writeCoinGame() {
         console.log("error  " + error)
     });
 
-  //  const dbReference = ref(fb_gamedb, ('Games/FarLands/Users/' + userUID));
+    //  const dbReference = ref(fb_gamedb, ('Games/FarLands/Users/' + userUID));
 
-  //  set(dbReference, { Score: Number(score), Name: userName }).then(() => {
-   //     console.log("write successful");
-        //document.getElementById("p_fbWriteRec").innerHTML = "Successful";
+    //  set(dbReference, { Score: Number(score), Name: userName }).then(() => {
+    //     console.log("write successful");
+    //document.getElementById("p_fbWriteRec").innerHTML = "Successful";
 
- //   }).catch((error) => {
- //       console.log("error:  " + error);
-        //document.getElementById("p_fbWriteRec").innerHTML = "Successful";
+    //   }).catch((error) => {
+    //       console.log("error:  " + error);
+    //document.getElementById("p_fbWriteRec").innerHTML = "Successful";
 
-//    });
+    //    });
 }
 function fb_read_sortedFL() {
     var sortKey = "Score";
@@ -220,7 +220,7 @@ function fb_read_sortedFL() {
                 leaderboard1 = fb_data
                 console.log(leaderboard1)
                 sessionStorage.setItem("data1", leaderboard1);
-                
+
                 const auth = getAuth();
                 auth.onAuthStateChanged(user => {
                     if (user) {
@@ -252,11 +252,11 @@ function fb_read_sortedCG() {
         Snapshot.forEach(function (userScoreSnapshot) {
             var fb_data = userScoreSnapshot.val();
             if (fb_data != null) {
-                console.log(fb_data.Score)
-                leaderboard1 = fb_data
-                console.log(leaderboard1)
+                console.log(fb_data.Score);
+                leaderboard1 = fb_data;
+                console.log(leaderboard1);
                 sessionStorage.setItem("data1", leaderboard1);
-                
+
                 const auth = getAuth();
                 auth.onAuthStateChanged(user => {
                     if (user) {
@@ -267,7 +267,7 @@ function fb_read_sortedCG() {
                 });
 
             } else {
-                console.log("something went wrong")
+                console.log("something went wrong");
             }
         });
 
@@ -284,14 +284,14 @@ function fb_updateInformationRegistrationFL() {
     const name = sessionStorage.getItem("name")
     const dbReference = ref(fb_gamedb, "Games/FarLands/Users/" + userUID);
 
-    update(dbReference, { Name: name}).then(() => {
+    update(dbReference, { Name: name }).then(() => {
         console.log("update successful");
 
 
     }).catch((error) => {
         console.log("error  " + error)
     });
-       
+
 
 
 }
@@ -314,14 +314,14 @@ function fb_updateInformationRegistrationCG() {
     const name = sessionStorage.getItem("name")
     const dbReference = ref(fb_gamedb, "Games/CoinGame/Users/" + userUID);
 
-    update(dbReference, { Name: name}).then(() => {
+    update(dbReference, { Name: name }).then(() => {
         console.log("update successful");
 
 
     }).catch((error) => {
         console.log("error  " + error)
     });
-       
+
 
 
 }
@@ -342,9 +342,9 @@ function createLobby() {
             console.log("Not signed in");
         }
     });
-    const dbReference = ref(fb_gamedb, "Games/guessTheNumber/unActive/" + userUID + "/player2");
+    const dbReference = ref(fb_gamedb, "Games/guessTheNumber/unActive/game/player2");
 
-    set(dbReference, { player2: "none", host: userUID}).then(() => {
+    set(dbReference, { player2: "none", host: userUID }).then(() => {
         console.log("very successful");
 
     }).catch((error) => {
@@ -355,31 +355,32 @@ function createLobby() {
 function joinLobby() {
     const userUID = sessionStorage.getItem("UID");
     console.log(userUID);
- //   const auth = getAuth();
- //   auth.onAuthStateChanged(user => {
- //       if (user) {
- //           console.log("Signed in as:", user.uid);
- //       } else {
- //           console.log("Not signed in");
- //       }
- //   });
-    
-    const dbReference= ref(fb_gamedb, "Games/guessTheNumber/unActive/");
-    get(dbReference).then((snapshot) => {
-        var fb_data = snapshot.val();
-        if (fb_data != null) { 
-            console.log(fb_data + "works")
-        } else {
-            console.log(String(fb_data) + "works sorta")
-        }
+    const dbReference = ref(fb_gamedb, "Games/guessTheNumber/unActive/game/player2");
+    update(dbReference, { player2: userUID, }).then(() => {
+        console.log("very successful");
     }).catch((error) => {
-        console.log("error" + error)
+        console.log("error  " + error)
     });
 
- //   const dbReference = ref(fb_gamedb, "Games/guessTheNumber/unActive/" + userUID + "/player2");
-  //  set(dbReference, { player2: "none"}).then(() => {
- //       console.log("very successful");
- //   }).catch((error) => {
- //       console.log("error  " + error)
-  //  });
+    const dbReference2 = ref(fb_gamedb, "Games/guessTheNumber/unActive/game/player2");
+    get(dbReference2).then((snapshot) => {
+        var fb_data = snapshot.val();
+        if (fb_data != null) {
+            console.log("Data: " + fb_data.host);
+            sessionStorage.setItem("host", fb_data.host);
+            sessionStorage.setItem("player2", fb_data.player2);
+            console.log("been set");
+            setTimeout(50);
+            createActiveGame();
+        } else {
+        }
+    }).catch((error) => {
+        console.log("error:  " + error);
+    });
+
+}
+function createActiveGame() {
+    const Host = sessionStorage.getItem("host");
+    const player2 = sessionStorage.getItem("player2");
+    console.log(Host);
 }

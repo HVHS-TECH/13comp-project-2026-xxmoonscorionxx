@@ -90,10 +90,8 @@ function playState() {
         gameStateChanger1();
     }
     else if (gameState == "instructions") {
-
         instructionsText();
         gameStateChanger2();
-
     }
     else if (gameState == "play") {
 
