@@ -173,6 +173,12 @@ function fb_writeFarLands() {
 
     //    });
 }
+
+function fb_writeRecord(_path,_key){
+}
+
+
+
 function fb_writeCoinGame() {
     var score;
     score = sessionStorage.getItem("score");
@@ -360,7 +366,7 @@ function joinLobby() {
     userUID = sessionStorage.getItem("UID");
     console.log(userUID);
     const dbReference = ref(fb_gamedb, "Games/guessTheNumber/unActive/game/players");
-    set(dbReference, { player2: userUID }).then(() => {
+    update(dbReference, { player2: userUID }).then(() => {
         console.log("very successful");
     }).catch((error) => {
         console.log("error  " + error)
